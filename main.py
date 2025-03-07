@@ -39,9 +39,7 @@ def get_images(bucket):
 
 
 def cargar_imagenes(bucket):
-    """
-    Descarga las imágenes del bucket y devuelve una lista de cadenas base64 con el prefijo de Data URI.
-    """
+ 
     imagenes_names = get_images(bucket)
     lista_imagenes = []
     for nombre in imagenes_names:
@@ -106,13 +104,13 @@ def app(page: ft.Page):
     page.window_height = 300
     page.bgcolor = "#121212"
     
-    # Agregar icono de la ventana
+  
     page.window_icon = "logo.ico" 
     
-    # Agregar icono de la ventana
-    page.window_icon = "logo.ico"  # Actualiza esta ruta con tu icono
+   
+    page.window_icon = "logo.ico" 
 
-    # Agregar cabecera con logos
+  
     logo = ft.Image(src="logo.png", width=120, height=120, fit=ft.ImageFit.CONTAIN)  
     header = ft.Row(
         controls=[
@@ -122,10 +120,10 @@ def app(page: ft.Page):
         alignment=ft.MainAxisAlignment.CENTER
     )
 
-    # Consola para el tab "Ejecutar"
+ 
     console = ft.Column([], expand=True)
 
-    # Contenedor para el carrusel de imágenes (se actualizará dinámicamente)
+    # Contenedor para el carrusel de imágenes 
     carousel_container = ft.Column(
         controls=[create_carousel(DESTINATION_BUCKET)],
         expand=True,
@@ -133,12 +131,12 @@ def app(page: ft.Page):
         horizontal_alignment=ft.CrossAxisAlignment.CENTER
     )
 
-    # Gif de carga
+ 
     loading_gif = ft.Image(
         src="katarina.gif", 
         width=100, 
         height=100, 
-        opacity=0.0  # Inicialmente oculto
+        opacity=0.0 
     )
     loading_gif_container = ft.Column([console, loading_gif], expand=True, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
 
@@ -147,7 +145,7 @@ def app(page: ft.Page):
         console.controls.append(ft.Text("➤➤➤ Iniciando procesamiento ➤➤➤", weight=ft.FontWeight.BOLD, color="white70"))
         page.update()
 
-        # Muestra la barra de carga
+     
         loading_gif.opacity = 1.0
         page.update()
 
@@ -167,11 +165,11 @@ def app(page: ft.Page):
                 except Exception as ex:
                     console.controls.append(ft.Text(f"Error con {nombre}: {str(ex)}", weight=ft.FontWeight.BOLD, color="red"))
         
-        # Oculta el gif al finalizar
+   
         loading_gif.opacity = 0.0
         console.controls.append(ft.Text("✅ Fin de la ejecución ✅", weight=ft.FontWeight.BOLD, color="green"))
         
-        # Actualiza el carrusel en todos los casos
+      
         carousel_container.controls.clear()
         carousel_container.controls.append(create_carousel(DESTINATION_BUCKET))
         page.update()
@@ -186,7 +184,7 @@ def app(page: ft.Page):
         )
     )
 
-    # Tab "Imágenes" con el contenedor del carrusel actualizado
+    
     imagenes_tab = ft.Tab(
         text="Imágenes",
         content=carousel_container
@@ -198,7 +196,7 @@ def app(page: ft.Page):
         tabs=[ejecutar_tab, imagenes_tab]
     )
 
-    # Se añade la cabecera y los tabs a la página
+  
     page.add(header, tab_view)
 
 
