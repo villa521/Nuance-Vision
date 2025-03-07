@@ -1,0 +1,13 @@
+Este código en C permite que el microcontrolador ESP32-CAM capture imágenes y las suba a una base de datos en Supabase. La configuración del código incluye los siguientes componentes:
+
+Configuración de la cámara: Se define la configuración de los pines de la cámara ESP32-CAM AI-Thinker y se inicializa la cámara. Además, se configura el pin del flash.
+
+Conexión Wi-Fi: El microcontrolador se conecta a una red Wi-Fi utilizando las credenciales proporcionadas.
+
+Captura y subida de imágenes: El ESP32-CAM captura una imagen cada minuto y la sube al almacenamiento de Supabase. Una vez subida la imagen, se obtiene la URL pública de la imagen y se guarda en la base de datos de Supabase.
+
+Función de generación de UUID: Se genera un UUID para cada imagen, que se utiliza como identificador único en la base de datos.
+
+Función de obtención de timestamp: Se obtiene la fecha y hora actual en formato ISO 8601 para registrar el momento en que se capturó y subió la imagen.
+
+Es importante mencionar que este código es un prototipo en proceso y aún no se han implementado las configuraciones para los sensores de temperatura y densidad del agua. Sin embargo, en futuras versiones del código, se planea agregar estos sensores para proporcionar un monitoreo más completo del Lago de Maracaibo.
