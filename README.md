@@ -32,12 +32,8 @@ Este proyecto tiene como objetivo desarrollar un prototipo de microcontrolador p
 - **Desarrolladores:**
   - Rodolfo Rodríguez
   - José Villalobos
+  -  Carlos Centeno
 
-- **Investigadores:**
-  - Arlany Machado
-  - Gabriel Rodríguez
-  - Karibell Bracho
-  - Oliver Morán
 
 ## Agradecimientos
 
